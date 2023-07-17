@@ -63,6 +63,9 @@
   --header-logo-link-position: absolute;
   --header-logo-link-top: -1rem;
   --header-logo-link-left: 0;
+
+  --transition-duration: .3s;
+  --transition-cubic-bezier: cubic-bezier(0.17, 0.67, 0, 1.01);
 }
 
 *,
@@ -134,6 +137,8 @@ a:active {
   color: var(--button-hover-color);
   text-decoration: var(--button-hover-text-decoration);
   background: var(--button-hover-background);
+  transition-duration: var(--transition-duration);
+  transition-property: color, background-color;
 }
 
 .navbar-menu {
@@ -173,6 +178,7 @@ a:active {
   background-color: var(--color-white);
   width: 0;
   height: 0.2rem;
+  transition: var(--transition-duration) var(--transition-cubic-bezier);
 }
 
 .nav .nav-item:hover .nav-link::before {
@@ -312,6 +318,20 @@ ul.row {
   color: var(--color-primary);    
 }
 
+.card-testimonial .card-quote {
+  position: relative;
+}
+
+.card-testimonial .card-quote::before {
+  content: "\201C";
+  position: absolute;
+  top: -4.5rem;
+  left: -1rem;
+  color: #efeded;
+  font-size: 10rem;
+  z-index: -1;
+}
+
 .card-work .card-outer {
   position: relative;
   overflow: hidden;
@@ -324,12 +344,22 @@ ul.row {
   vertical-align: bottom;
 }
 
+.card-work:hover .card-image {
+  transform: scale(1.2);
+  transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+
+.card-work:hover .card-outer {
+  transform: scale(0.95);
+}
+
 .card-work .card-inner {
   position: absolute;
   top: -0.1rem;
   left: -0.1rem;
   right: -0.1rem;
   z-index: 1;
+  transition: var(--transition-duration) var(--transition-cubic-bezier);
 }
 
 .card-work:hover .card-inner {
@@ -363,6 +393,8 @@ ul.row {
   opacity: 1;
 }
 
+
+
 .footer-address {
   color: var(--text-color);
 }
@@ -380,3 +412,9 @@ ul.row {
 .footer {
   padding: var(--footer-padding);
 }
+
+
+
+
+
+
